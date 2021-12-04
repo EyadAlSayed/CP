@@ -15,6 +15,7 @@ htmlElements
     : htmlMisc* htmlElement htmlMisc*
     ;
 
+
 htmlElement
     : TAG_OPEN TAG_NAME htmlAttribute*
       (TAG_CLOSE (htmlContent TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE)? | TAG_SLASH_CLOSE)
@@ -37,6 +38,8 @@ htmlAttribute
     | ng_show (TAG_NG_ATTRIBUTE NG_VALUE)?
     | ng_hide (TAG_NG_ATTRIBUTE NG_VALUE)?
     | ng_if (TAG_NG_ATTRIBUTE NG_VALUE)?
+    | TYPE_EQUALS TYPE_VALUE    //type! ' '   SALEM
+    | NG_MODEL_EQUALS MODEL_VALUE //ng-model! ' '   SALEM
     | TAG_NAME (TAG_NG_ATTRIBUTE NG_VALUE)?
     | TAG_NAME (TAG_EQUALS  ATTVALUE_VALUE)?
     ;
@@ -50,6 +53,8 @@ ng_case: NGCASE;
 ng_show : NGSHOW;
 ng_hide : NGHIDE;
 ng_if : NGIF;
+type : TYPE;
+model : NG_MODEL;
 
 ng_for_attribute : NG_FOR_ATTRIBUTE;
 

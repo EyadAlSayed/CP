@@ -49,6 +49,8 @@ TAG_OPEN_B
     :' '* '{{' ' '* ->pushMode(OPEN_B_MODE)
     ;
 
+
+
 mode OPEN_B_MODE;
 
 B_CLOSE: ' '* '}}' ' '* -> popMode;
@@ -68,6 +70,11 @@ NGSHOW: ' '* 'ng-show';
 NGIF: ' '* 'ng-if';
 NGHIDE: ' '* 'ng-hide';
 NGCASE: ' '* 'ng-switch-case';
+
+
+//SALEM
+TYPE : ' '* 'type';
+NG_MODEL : ' '* 'ng-model';
 
 TAG_CLOSE
     : '>' -> popMode
@@ -99,6 +106,19 @@ TAG_WHITESPACE
 TAG_NG_ATTRIBUTE
     : '!' -> pushMode(NG_MODE)
     ;
+
+
+//Begining of 'type' syntax   SALEM
+TYPE_EQUALS
+  : TYPE '!\'' -> pushMode(TYPE_MODE);
+
+
+//Begining of 'ng-model' syntax   SALEM
+NG_MODEL_EQUALS
+    : NG_MODEL '!\'' -> pushMode(NG_MODEL_MODE);
+
+
+
 //TAG_NG_SWITCH_ATTRIBUTE : '!' -> pushMode(NG_SWITCH_MODE);
 
 fragment
@@ -210,6 +230,31 @@ fragment DOUBLE_QUOTE_STRING
 fragment SINGLE_QUOTE_STRING
     : '\'' ~[<']* '\''
     ;
+
+
+//Type mode for type!   SALEM
+mode TYPE_MODE;
+
+TYPE_VALUE
+    : ' '* TYPE_ATTRIBUTE -> popMode
+    ;
+TYPE_ATTRIBUTE
+    : ~[<']* '\'';
+
+
+
+//Type mode for ng-model!   SALEM
+mode NG_MODEL_MODE;
+
+MODEL_VALUE
+    : ' '* MODEL_ATTRIBUTE -> popMode
+    ;
+MODEL_ATTRIBUTE
+    : ~[<']* '\'';
+
+
+
+
 
 mode NG_MODE;
 
