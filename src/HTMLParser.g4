@@ -31,30 +31,17 @@ htmlContent
 
 htmlAttribute
     :
-      ng_for (TAG_NG_ATTRIBUTE NG_VALUE)?
-    | ng_switch (TAG_NG_ATTRIBUTE NG_VALUE)?
-    | ng_case (TAG_NG_ATTRIBUTE NG_VALUE)?
-    | ng_show (TAG_NG_ATTRIBUTE NG_VALUE)?
-    | ng_hide (TAG_NG_ATTRIBUTE NG_VALUE)?
-    | ng_if (TAG_NG_ATTRIBUTE NG_VALUE)?
-    | TAG_NAME (TAG_NG_ATTRIBUTE NG_VALUE)?
+      TAG_NG_FOR_ATTRIBUTE ng_for_attribute
     | TAG_NAME (TAG_EQUALS  ATTVALUE_VALUE)?
     ;
 
-
+// IDX IN IDT SINGLE_QUOTE
 /*  ng keyword  */
-
-ng_for: NGFOR;
-ng_switch: NGSWITCH;
-ng_case: NGCASE;
-ng_show : NGSHOW;
-ng_hide : NGHIDE;
-ng_if : NGIF;
 
 ng_for_attribute : NG_FOR_ATTRIBUTE;
 
 /*  mustach template  */
-open_b : (SEA_W* TAG_OPEN_B SEA_WS* b_attribute SEA_WS*B_CLOSE) ;
+open_b : (SEA_WS* TAG_OPEN_B SEA_WS* b_attribute SEA_WS*B_CLOSE) ;
 b_attribute : B_ATTRIBUTE;
 
 htmlChardata
