@@ -96,10 +96,9 @@ TAG_WHITESPACE
     : [ \t\r\n] -> channel(HIDDEN)
     ;
 
-TAG_NG_ATTRIBUTE
-    : '!' -> pushMode(NG_MODE)
+TAG_NG_FOR_ATTRIBUTE
+    : NGFOR '!'-> pushMode(NG_FOR_MODE)
     ;
-//TAG_NG_SWITCH_ATTRIBUTE : '!' -> pushMode(NG_SWITCH_MODE);
 
 fragment
 HEXDIGIT
@@ -211,36 +210,22 @@ fragment SINGLE_QUOTE_STRING
     : '\'' ~[<']* '\''
     ;
 
-mode NG_MODE;
+mode NG_FOR_MODE;
 
-NG_VALUE
-    : ' '* NG_FOR_ATTRIBUTE ->popMode
+NG_FOR_VALUE
+    :NG_FOR_ATTRIBUTE ->popMode
     ;
-NG_FOR_ATTRIBUTE
-    :
-       SINGLE_QUOTE_FOR_ATT
-     | SIGNLE_FOR_OPEN_B
+
+NG_FOR_ATTRIBUTE:
+     SINGLE_QUOTE_FOR_ATT
+    | SIGNLE_FOR_OPEN_B
     ;
+
+
+
 fragment SINGLE_QUOTE_FOR_ATT
     : '\'' ~[<']* '\''
     ;
 fragment SIGNLE_FOR_OPEN_B
     : '\'' ~[<]*  '\''
-    ;
-
-mode NG_CONDITION_MODE;
-
-NG_SWITCH_VALUE
-    : ' '* NG_SWITCH_ATTRIBUTE ->popMode
-    ;
-NG_SWITCH_ATTRIBUTE
-    :
-     SINGLE_QUOTE_SWITCH_ATT
-     | SIGNLE_SWITCH_OPEN_B
-    ;
-fragment SINGLE_QUOTE_SWITCH_ATT
-    : '\'' ~[<']* '\''
-    ;
-fragment SIGNLE_SWITCH_OPEN_B
-    : '\'' ~[<]* '\''
     ;
