@@ -49,8 +49,6 @@ TAG_OPEN_B
     :' '* '{{' ' '* ->pushMode(OPEN_B_MODE)
     ;
 
-
-
 mode OPEN_B_MODE;
 
 B_CLOSE: ' '* '}}' ' '* -> popMode;
@@ -258,13 +256,17 @@ MODEL_ATTRIBUTE
 
 mode NG_MODE;
 
-NG_VALUE
-    : ' '* NG_FOR_ATTRIBUTE ->popMode
+
+
+mode NG_FOR_MODE;
+
+NG_FOR_VALUE
+    :NG_FOR_ATTRIBUTE ->popMode
     ;
-NG_FOR_ATTRIBUTE
-    :
-       SINGLE_QUOTE_FOR_ATT
-     | SIGNLE_FOR_OPEN_B
+
+NG_FOR_ATTRIBUTE:
+     SINGLE_QUOTE_FOR_ATT
+    | SIGNLE_FOR_OPEN_B
     ;
 fragment SINGLE_QUOTE_FOR_ATT
     : '\'' ~[<']* '\''
