@@ -17,7 +17,9 @@ htmlElements
 
 
 htmlElement
-    : TAG_OPEN TAG_NAME htmlAttribute*
+    :
+      TAG_OPEN_INPUT  (TYPE_EQUALS TYPE_VALUE NG_MODEL_EQUALS MODEL_VALUE)+ TAG_SLASH_CLOSE_INPUT    // SALEM
+      |TAG_OPEN TAG_NAME htmlAttribute*
       (TAG_CLOSE (htmlContent TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE)? | TAG_SLASH_CLOSE)
     | SCRIPTLET
     | open_b
@@ -79,7 +81,8 @@ htmlComment
     ;
 
 script
-    : SCRIPT_OPEN (SCRIPT_BODY | SCRIPT_SHORT_BODY)
+    :SEA_WS* SCRIPT_OPEN (VAR VAR_VARIABLE VAR_EQUALS VAR_VARIABLE_VALUE)* SCRIPT_CLOSE
+
     ;
 
 style

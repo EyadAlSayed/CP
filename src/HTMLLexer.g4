@@ -30,8 +30,9 @@ SEA_WS
     ;
 
 SCRIPT_OPEN
-    : '<script' .*? '>' ->pushMode(SCRIPT)
+    : SEA_WS* '<script' .*? '>' SEA_WS* ->pushMode(SCRIPT)
     ;
+
 
 STYLE_OPEN
     : '<style' .*? '>'  ->pushMode(STYLE)
@@ -39,6 +40,12 @@ STYLE_OPEN
 
 TAG_OPEN
     : '<' -> pushMode(TAG)
+    ;
+
+//Begining of 'input tag' syntax   SALEM
+
+TAG_OPEN_INPUT
+    : ' '* '<input' ->pushMode(INPUT_MODE)
     ;
 
 HTML_TEXT
@@ -93,6 +100,12 @@ TAG_EQUALS
     : '=' -> pushMode(ATTVALUE)
     ;
 
+
+//End of 'input tag' syntax   SALEM
+    TAG_NAME_INPUT_END
+        : 'input' ->popMode
+        ;
+
 TAG_NAME
     : TAG_NameStartChar TAG_NameChar*
     ;
@@ -101,19 +114,9 @@ TAG_WHITESPACE
     : [ \t\r\n] -> channel(HIDDEN)
     ;
 
-TAG_NG_ATTRIBUTE
-    : '!' -> pushMode(NG_MODE)
-    ;
 
 
-//Begining of 'type' syntax   SALEM
-TYPE_EQUALS
-  : TYPE '!\'' -> pushMode(TYPE_MODE);
 
-
-//Begining of 'ng-model' syntax   SALEM
-NG_MODEL_EQUALS
-    : NG_MODEL '!\'' -> pushMode(NG_MODEL_MODE);
 
 
 
@@ -155,15 +158,14 @@ TAG_NameStartChar
 // <scripts>
 
 mode SCRIPT;
+//Begining of 'var' syntax   SALEM
+VAR
+   : ' '* 'var' -> pushMode(VAR_MODE)
+   ;
 
-SCRIPT_BODY
-    : .*? '</script>' -> popMode
+SCRIPT_CLOSE
+    : SEA_WS* '</script>' ->popMode
     ;
-
-SCRIPT_SHORT_BODY
-    : .*? '</>' -> popMode
-    ;
-
 
 // <styles>
 
@@ -229,6 +231,32 @@ fragment SINGLE_QUOTE_STRING
     : '\'' ~[<']* '\''
     ;
 
+//   SALEM
+mode INPUT_MODE;
+
+TAG_NAME_INPUT_BEGIN
+    : 'input' ->pushMode(INPUT_MODE)
+    ;
+ TAG_CLOSE_INPUT
+        : ' '* '>' -> popMode
+        ;
+
+TAG_SLASH_CLOSE_INPUT
+            : ' '* '/>' -> popMode
+            ;
+
+
+//Begining of 'type' syntax   SALEM
+TYPE_EQUALS
+  : TYPE '!\'' -> pushMode(TYPE_MODE);
+
+
+//Begining of 'ng-model' syntax   SALEM
+NG_MODEL_EQUALS
+    : NG_MODEL '!\'' -> pushMode(NG_MODEL_MODE);
+
+
+
 
 //Type mode for type!   SALEM
 mode TYPE_MODE;
@@ -241,6 +269,7 @@ TYPE_ATTRIBUTE
 
 
 
+
 //Type mode for ng-model!   SALEM
 mode NG_MODEL_MODE;
 
@@ -250,11 +279,18 @@ MODEL_VALUE
 MODEL_ATTRIBUTE
     : ~[<']* '\'';
 
+//   SALEM
+mode VAR_MODE;
+
+VAR_VARIABLE
+    : (' ' | '\n')* [a-zA-Z]*;
+VAR_EQUALS
+    : ' '* '=' ;
+VAR_VARIABLE_VALUE
+    : ' '* '\'' ~[<']* '\'' ->popMode ;
+     
 
 
-
-
-mode NG_MODE;
 
 
 
