@@ -15,8 +15,11 @@ htmlElements
     : htmlMisc* htmlElement htmlMisc*
     ;
 
+
 htmlElement
-    : TAG_OPEN TAG_NAME htmlAttribute*
+    :
+      TAG_OPEN_INPUT  (TYPE_EQUALS TYPE_VALUE NG_MODEL_EQUALS MODEL_VALUE)+ TAG_SLASH_CLOSE_INPUT    // SALEM
+      |TAG_OPEN TAG_NAME htmlAttribute*
       (TAG_CLOSE (htmlContent TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE)? | TAG_SLASH_CLOSE)
     | SCRIPTLET
     | open_b
@@ -37,6 +40,8 @@ htmlAttribute
     | ng_show (TAG_NG_ATTRIBUTE NG_VALUE)?
     | ng_hide (TAG_NG_ATTRIBUTE NG_VALUE)?
     | ng_if (TAG_NG_ATTRIBUTE NG_VALUE)?
+    | TYPE_EQUALS TYPE_VALUE    //type! ' '   SALEM
+    | NG_MODEL_EQUALS MODEL_VALUE //ng-model! ' '   SALEM
     | TAG_NAME (TAG_NG_ATTRIBUTE NG_VALUE)?
     | TAG_NAME (TAG_EQUALS  ATTVALUE_VALUE)?
     ;
@@ -50,6 +55,8 @@ ng_case: NGCASE;
 ng_show : NGSHOW;
 ng_hide : NGHIDE;
 ng_if : NGIF;
+type : TYPE;
+model : NG_MODEL;
 
 ng_for_attribute : NG_FOR_ATTRIBUTE;
 
@@ -74,7 +81,8 @@ htmlComment
     ;
 
 script
-    : SCRIPT_OPEN (SCRIPT_BODY | SCRIPT_SHORT_BODY)
+    :SEA_WS* SCRIPT_OPEN (VAR VAR_VARIABLE VAR_EQUALS VAR_VARIABLE_VALUE)* SCRIPT_CLOSE
+
     ;
 
 style
