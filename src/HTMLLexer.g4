@@ -48,9 +48,13 @@ TAG_OPEN_INPUT
     : ' '* '<input' ->pushMode(INPUT_MODE)
     ;
 
-HTML_TEXT
-    : ~('<'|'{'|':')+
-    ;
+MODEL_VARIABLE
+    : [a-zA-Z]+ -> pushMode(MODEL_VARIABLE_MODE);
+
+
+//HTML_TEXT
+//    : ~('<'|'{')+
+//    ;
 
 TAG_OPEN_B
     :' '* '{{' ' '* ->pushMode(OPEN_B_MODE)
@@ -288,11 +292,31 @@ VAR_EQUALS
     : ' '* '=' ;
 VAR_VARIABLE_VALUE
     : ' '* '\'' ~[<']* '\'' ->popMode ;
-     
 
+mode MODEL_VARIABLE_MODE;
 
+MY_FORMATER_NAME : 'myFormater';
+FUNCTION_SPLITER : ':' ;
 
+FUNCTION_INDICATOR
+    : ' '* '|' ' '*
+    ;
+FUNCTION_NAME
+    : MY_FORMATER -> popMode
+    ;
 
+MY_FORMATER
+    :  MY_FORMATER_NAME FUNCTION_SPLITER  FORMATER_TYPE ;
+
+FORMATER_TYPE
+    : DATE_FORMAT SEA_WS*
+    ;
+
+DATE_FORMAT
+    : '\'yyyyMMdd\''
+    | 'MMyyyydd'
+    | 'ddMMyyyy'
+    ;
 
 mode NG_FOR_MODE;
 
