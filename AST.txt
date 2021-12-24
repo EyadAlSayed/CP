@@ -1,0 +1,4 @@
+Document: {
+	header(DocumentHeader): {},
+	body(DocumentBody): {},
+}

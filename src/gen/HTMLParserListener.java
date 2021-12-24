@@ -1,4 +1,4 @@
-// Generated from D:/Compiler-project/src\HTMLParser.g4 by ANTLR 4.9.2
+// Generated from D:/My compiler project/CP/src\HTMLParser.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -47,6 +47,16 @@ public interface HTMLParserListener extends ParseTreeListener {
 	 */
 	void exitHtmlElement(HTMLParser.HtmlElementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link HTMLParser#htmlData}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlData(HTMLParser.HtmlDataContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link HTMLParser#htmlData}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlData(HTMLParser.HtmlDataContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link HTMLParser#htmlContent}.
 	 * @param ctx the parse tree
 	 */
@@ -67,15 +77,125 @@ public interface HTMLParserListener extends ParseTreeListener {
 	 */
 	void exitHtmlAttribute(HTMLParser.HtmlAttributeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link HTMLParser#ngfor_body}.
+	 * Enter a parse tree produced by {@link HTMLParser#ng_for_value}.
 	 * @param ctx the parse tree
 	 */
-	void enterNgfor_body(HTMLParser.Ngfor_bodyContext ctx);
+	void enterNg_for_value(HTMLParser.Ng_for_valueContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link HTMLParser#ngfor_body}.
+	 * Exit a parse tree produced by {@link HTMLParser#ng_for_value}.
 	 * @param ctx the parse tree
 	 */
-	void exitNgfor_body(HTMLParser.Ngfor_bodyContext ctx);
+	void exitNg_for_value(HTMLParser.Ng_for_valueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link HTMLParser#ng_for}.
+	 * @param ctx the parse tree
+	 */
+	void enterNg_for(HTMLParser.Ng_forContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link HTMLParser#ng_for}.
+	 * @param ctx the parse tree
+	 */
+	void exitNg_for(HTMLParser.Ng_forContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link HTMLParser#ng_switch}.
+	 * @param ctx the parse tree
+	 */
+	void enterNg_switch(HTMLParser.Ng_switchContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link HTMLParser#ng_switch}.
+	 * @param ctx the parse tree
+	 */
+	void exitNg_switch(HTMLParser.Ng_switchContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link HTMLParser#ng_case}.
+	 * @param ctx the parse tree
+	 */
+	void enterNg_case(HTMLParser.Ng_caseContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link HTMLParser#ng_case}.
+	 * @param ctx the parse tree
+	 */
+	void exitNg_case(HTMLParser.Ng_caseContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link HTMLParser#ng_show}.
+	 * @param ctx the parse tree
+	 */
+	void enterNg_show(HTMLParser.Ng_showContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link HTMLParser#ng_show}.
+	 * @param ctx the parse tree
+	 */
+	void exitNg_show(HTMLParser.Ng_showContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link HTMLParser#ng_hide}.
+	 * @param ctx the parse tree
+	 */
+	void enterNg_hide(HTMLParser.Ng_hideContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link HTMLParser#ng_hide}.
+	 * @param ctx the parse tree
+	 */
+	void exitNg_hide(HTMLParser.Ng_hideContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link HTMLParser#ng_if}.
+	 * @param ctx the parse tree
+	 */
+	void enterNg_if(HTMLParser.Ng_ifContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link HTMLParser#ng_if}.
+	 * @param ctx the parse tree
+	 */
+	void exitNg_if(HTMLParser.Ng_ifContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link HTMLParser#type}.
+	 * @param ctx the parse tree
+	 */
+	void enterType(HTMLParser.TypeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link HTMLParser#type}.
+	 * @param ctx the parse tree
+	 */
+	void exitType(HTMLParser.TypeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link HTMLParser#model}.
+	 * @param ctx the parse tree
+	 */
+	void enterModel(HTMLParser.ModelContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link HTMLParser#model}.
+	 * @param ctx the parse tree
+	 */
+	void exitModel(HTMLParser.ModelContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link HTMLParser#ng_for_attribute}.
+	 * @param ctx the parse tree
+	 */
+	void enterNg_for_attribute(HTMLParser.Ng_for_attributeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link HTMLParser#ng_for_attribute}.
+	 * @param ctx the parse tree
+	 */
+	void exitNg_for_attribute(HTMLParser.Ng_for_attributeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link HTMLParser#mustach_open}.
+	 * @param ctx the parse tree
+	 */
+	void enterMustach_open(HTMLParser.Mustach_openContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link HTMLParser#mustach_open}.
+	 * @param ctx the parse tree
+	 */
+	void exitMustach_open(HTMLParser.Mustach_openContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link HTMLParser#mustach_body}.
+	 * @param ctx the parse tree
+	 */
+	void enterMustach_body(HTMLParser.Mustach_bodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link HTMLParser#mustach_body}.
+	 * @param ctx the parse tree
+	 */
+	void exitMustach_body(HTMLParser.Mustach_bodyContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link HTMLParser#htmlChardata}.
 	 * @param ctx the parse tree
