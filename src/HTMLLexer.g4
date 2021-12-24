@@ -42,32 +42,19 @@ TAG_OPEN
     ;
 
 HTML_TEXT
-    : ~('<'|'{'|':')+
+    : ~('<'|'{')+
     ;
 
-TAG_OPEN_B
-    :' '* '{{' ' '* ->pushMode(OPEN_B_MODE)
-    ;
-
-mode OPEN_B_MODE;
-
-B_CLOSE: ' '* '}}' ' '* -> popMode;
-
-B_ATTRIBUTE
-    :
-    [a-zA-Z]+
+TAG_OPEN_MUSTACH
+    :SPACE* '{{' SPACE* ->pushMode(MUSTACH_MODE)
     ;
 
 // tag declarations
 
 mode TAG;
 
-NGFOR: ' '* 'ng-for';
-NGSWITCH: ' '* 'ng-switch';
-NGSHOW: ' '* 'ng-show';
-NGIF: ' '* 'ng-if';
-NGHIDE: ' '* 'ng-hide';
-NGCASE: ' '* 'ng-switch-case';
+NGFOR: SPACE* 'ng-for';
+
 
 TAG_CLOSE
     : '>' -> popMode
@@ -96,9 +83,11 @@ TAG_WHITESPACE
     : [ \t\r\n] -> channel(HIDDEN)
     ;
 
-TAG_NG_FOR_ATTRIBUTE
+TAG_NG_FOR
     : NGFOR '!' '\'' -> pushMode(NG_FOR_MODE)
     ;
+TAG_SQ_BRACKET : SPACE* '[' -> pushMode(SQ_BRACKET_MODE);
+TAG_CARLE_BRACKET : SPACE* '{' ->pushMode(CARLE_BRAKET_MODE);
 
 fragment
 HEXDIGIT
@@ -131,7 +120,7 @@ TAG_NameStartChar
     | '\uF900'..'\uFDCF'
     | '\uFDF0'..'\uFFFD'
     ;
-
+fragment WORD : [a-zA-Z]+;
 
 // <scripts>
 
@@ -165,7 +154,7 @@ mode ATTVALUE;
 
 // an attribute value may have spaces b/t the '=' and the value
 ATTVALUE_VALUE
-    : ' '* ATTRIBUTE -> popMode
+    : SPACE* ATTRIBUTE -> popMode
     ;
 ATTRIBUTE
     :
@@ -210,26 +199,117 @@ fragment SINGLE_QUOTE_STRING
     : '\'' ~[<']* '\''
     ;
 
+
+/* EYAD */
 mode NG_FOR_MODE;
 
+IN : SPACE* 'in';
+SPACE : ' ';
+EQUALS : SPACE* '=';
+SEM_COLON : ';';
+SINGLE_QUOTE : SPACE* '\'';
+
+
 NG_FOR_VALUE
-    : SINGLE_QUOTE ->popMode
+    :SPACE* NG_FOR_ATTRIBUTE ->popMode
     ;
 
-NG_FOR_ATTRIBUTE:
-    SINGLE_QUOTE IDX IN IDT SINGLE_QUOTE
-    | SINGLE_QUOTE_FOR_ATT
-    | SIGNLE_FOR_OPEN_B
+NG_FOR_ATTRIBUTE
+     : ID_CHAR
+     | ID_WORD
+     | ID_CHAR_LIST
+     | ID_WORD_LIST
+     | ID_ITEMS_CH_CHAR
+     | ID_ITEMS_CH_WORD
+     | ID_ITEMS_W_CHAR
+     | ID_ITEMS_W_WORD
+     | ID_ITEMS_CH_LIST
+     | ID_ITEMS_W_LIST
+     | ID_ITEMS_CH_OBJ
     ;
+fragment IDCHAR : SPACE* [a-zA-Z];
+fragment IDWORD : SPACE* [a-zA-Z]+;
+fragment IDNUM : SPACE* [0-9]+;
 
-IDX :'x';
-IDT :'t';
-IN  :'in';
-SINGLE_QUOTE : '\'';
+/*  x in t */
+fragment ID_CHAR : IDCHAR SPACE IN SPACE IDCHAR  (SEM_COLON ID_INDEX)* SINGLE_QUOTE;
 
+/* xxx in ttt  */
+fragment ID_WORD : IDWORD SPACE IN SPACE? IDWORD (SEM_COLON ID_INDEX)* SINGLE_QUOTE;
+
+/* x in [a,b,c] */
+fragment ID_CHAR_LIST : IDCHAR SPACE IN SPACE TAG_SQ_BRACKET CLOSE_SQ_BRACKET (SEM_COLON ID_INDEX)* SINGLE_QUOTE;
+
+/* xxx in [a,b,c] */
+fragment ID_WORD_LIST : IDWORD SPACE IN SPACE TAG_SQ_BRACKET CLOSE_SQ_BRACKET (SEM_COLON ID_INDEX)* SINGLE_QUOTE;
+
+/* x,y in t*/
+fragment ID_ITEMS_CH_CHAR : (IDCHAR COMMA?)+ SPACE IN SPACE IDCHAR (SEM_COLON ID_INDEX)* SINGLE_QUOTE;
+
+/* xxx,yyy in t*/
+fragment ID_ITEMS_W_CHAR : (IDWORD COMMA?)+ SPACE IN SPACE IDCHAR (SEM_COLON ID_INDEX)* SINGLE_QUOTE;
+
+/* x,y in ttt*/
+fragment ID_ITEMS_CH_WORD : (IDCHAR COMMA?)+ SPACE  IN SPACE IDWORD (SEM_COLON ID_INDEX)* SINGLE_QUOTE;
+
+/*  xxx,yyy in ttt*/
+fragment ID_ITEMS_W_WORD : (IDWORD COMMA?)+ SPACE  IN SPACE IDWORD (SEM_COLON ID_INDEX)* SINGLE_QUOTE;
+
+/* x,y in [a,b,c] */
+fragment ID_ITEMS_CH_LIST : (IDCHAR COMMA?)+ SPACE IN SPACE TAG_SQ_BRACKET CLOSE_SQ_BRACKET (SEM_COLON ID_INDEX)* SINGLE_QUOTE;
+
+/* xx,yy in [a,b,c] */
+fragment ID_ITEMS_W_LIST : (IDWORD COMMA?) + SPACE IN SPACE TAG_SQ_BRACKET CLOSE_SQ_BRACKET (SEM_COLON ID_INDEX)* SINGLE_QUOTE;
+
+/* x,y in {object} */
+fragment ID_ITEMS_CH_OBJ : (IDCHAR COMMA?)+ SPACE IN SPACE TAG_CARLE_BRACKET CLOSE_CARLE_BRAKET (SEM_COLON ID_INDEX)* SINGLE_QUOTE ;
+
+/* xx,yy in {object}*/
+fragment ID_ITEMS_W_OBJ : (IDWORD COMMA?)+ SPACE IN SPACE TAG_CARLE_BRACKET CLOSE_CARLE_BRAKET (SEM_COLON ID_INDEX)* SINGLE_QUOTE ;
+
+
+/* ; i = index */
+fragment ID_INDEX : IDCHAR SPACE? EQUALS SPACE? IDWORD ;
+
+
+/* not used regex */
 fragment SINGLE_QUOTE_FOR_ATT
-    : '\'' ~[<']* '\''
+    :  ~[<']* '\''
     ;
 fragment SIGNLE_FOR_OPEN_B
-    : '\'' ~[<]*  '\''
+    :  ~[<]*  '\''
+    ;
+
+mode SQ_BRACKET_MODE;
+
+COMMA: SPACE* ',';
+
+CLOSE_SQ_BRACKET : SPACE* SQ_BRACKET_ATTRIBUTE* SPACE* ']' ->popMode;
+
+SQ_BRACKET_ATTRIBUTE
+    : ITEMS
+    ;
+
+fragment ITEMS: (ITEMCHAR | ITEMWORD | ITEMNUM | ITEMNUMBER);
+fragment ITEMCHAR : SINGLE_QUOTE SPACE? [a-zA-Z] SPACE? SINGLE_QUOTE COMMA?;
+fragment ITEMWORD : SINGLE_QUOTE SPACE? [a-zA-Z]+ SPACE? SINGLE_QUOTE COMMA?;
+fragment ITEMNUM : SINGLE_QUOTE SPACE? [0-9]+ SPACE? SINGLE_QUOTE COMMA?;
+fragment ITEMNUMBER:  [0-9]+ COMMA?;
+
+mode CARLE_BRAKET_MODE;
+
+PIP : ':';
+CLOSE_CARLE_BRAKET: SPACE* CARLE_BRAKET_VALUE* SPACE* '}' ->popMode;
+CARLE_BRAKET_VALUE : NUM_ATT | TXT_ATT;
+
+fragment NUM_ATT : IDWORD SPACE* PIP SPACE* IDNUM COMMA*;
+fragment TXT_ATT : IDWORD SPACE* PIP SPACE* SINGLE_QUOTE IDWORD SINGLE_QUOTE COMMA*;
+
+mode MUSTACH_MODE;
+
+MUSTACH_CLOSE: SPACE* '}}' SPACE* -> popMode;
+
+MUSTACH_ATTRIBUTE
+    :
+    [a-zA-Z]+
     ;

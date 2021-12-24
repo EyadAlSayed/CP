@@ -19,7 +19,7 @@ htmlElement
     : TAG_OPEN TAG_NAME htmlAttribute*
       (TAG_CLOSE (htmlContent TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE)? | TAG_SLASH_CLOSE)
     | SCRIPTLET
-    | open_b
+    | mustach_open
     | script
     | style
     ;
@@ -31,18 +31,19 @@ htmlContent
 
 htmlAttribute
     :
-      TAG_NG_FOR_ATTRIBUTE ng_for_attribute
+      TAG_NG_FOR ng_for_value
+    | TAG_NAME (TAG_NG_FOR ng_for_value)?
     | TAG_NAME (TAG_EQUALS  ATTVALUE_VALUE)?
     ;
 
-// IDX IN IDT SINGLE_QUOTE
-/*  ng keyword  */
 
-ng_for_attribute : NG_FOR_ATTRIBUTE;
+/*  ng for keyword  */
+ng_for_value : NG_FOR_VALUE;
+
 
 /*  mustach template  */
-open_b : (SEA_WS* TAG_OPEN_B SEA_WS* b_attribute SEA_WS*B_CLOSE) ;
-b_attribute : B_ATTRIBUTE;
+mustach_open : (SEA_WS* TAG_OPEN_MUSTACH SEA_WS* mustach_body SEA_WS*MUSTACH_CLOSE) ;
+mustach_body : MUSTACH_ATTRIBUTE;
 
 htmlChardata
     :
