@@ -66,7 +66,7 @@ B_CLOSE: ' '* '}}' ' '* -> popMode;
 
 B_ATTRIBUTE
     :
-    ~('}'|'{')+
+    [a-zA-Z]+
     ;
 
 // tag declarations
@@ -235,9 +235,6 @@ fragment SINGLE_QUOTE_STRING
     : '\'' ~[<']* '\''
     ;
 
-
-
-
 //   SALEM
 mode INPUT_MODE;
 
@@ -312,7 +309,7 @@ MY_FORMATER
     :  MY_FORMATER_NAME FUNCTION_SPLITER  FORMATER_TYPE ;
 
 FORMATER_TYPE
-    : DATE_FORMAT
+    : DATE_FORMAT SEA_WS*
     ;
 
 DATE_FORMAT

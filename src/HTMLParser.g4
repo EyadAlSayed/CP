@@ -20,7 +20,7 @@ htmlElement
     :
       TAG_OPEN_INPUT  (TYPE_EQUALS TYPE_VALUE NG_MODEL_EQUALS MODEL_VALUE)+ TAG_SLASH_CLOSE_INPUT    // SALEM
       |TAG_OPEN TAG_NAME htmlAttribute*
-      (TAG_CLOSE (htmlContent+ SEA_WS* TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE) | TAG_SLASH_CLOSE)
+      (TAG_CLOSE (htmlContent TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE) | TAG_SLASH_CLOSE)
     | SCRIPTLET
     | open_b
     | script
@@ -30,8 +30,7 @@ htmlData: ((htmlElement| CDATA | htmlComment|htmlAttribute) htmlChardata?);
 
 htmlContent
     : SEA_WS* model_variable  (FUNCTION_INDICATOR FUNCTION_NAME)?
-
-     | SEA_WS* open_b
+     |//htmlChardata? htmlData*
     ;
 
 htmlAttribute
@@ -64,7 +63,7 @@ model_variable : MODEL_VARIABLE;
 ng_for_attribute : NG_FOR_ATTRIBUTE;
 
 /*  mustach template  */
-open_b : (SEA_W* TAG_OPEN_B SEA_WS* b_attribute SEA_WS* B_CLOSE);
+open_b : (SEA_W* TAG_OPEN_B SEA_WS* b_attribute SEA_WS*B_CLOSE) ;
 b_attribute : B_ATTRIBUTE;
 
 htmlChardata
