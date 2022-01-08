@@ -1,4 +1,4 @@
-// Generated from D:/My compiler project/CP/src\HTMLParser.g4 by ANTLR 4.9.2
+// Generated from D:/CP/src\HTMLParser.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -57,60 +57,6 @@ public interface HTMLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitNg_for_value(HTMLParser.Ng_for_valueContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HTMLParser#ng_for}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNg_for(HTMLParser.Ng_forContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HTMLParser#ng_switch}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNg_switch(HTMLParser.Ng_switchContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HTMLParser#ng_case}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNg_case(HTMLParser.Ng_caseContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HTMLParser#ng_show}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNg_show(HTMLParser.Ng_showContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HTMLParser#ng_hide}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNg_hide(HTMLParser.Ng_hideContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HTMLParser#ng_if}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNg_if(HTMLParser.Ng_ifContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HTMLParser#type}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitType(HTMLParser.TypeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HTMLParser#model}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitModel(HTMLParser.ModelContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link HTMLParser#ng_for_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNg_for_attribute(HTMLParser.Ng_for_attributeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link HTMLParser#mustach_open}.
 	 * @param ctx the parse tree

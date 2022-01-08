@@ -1,4 +1,4 @@
-// Generated from D:/My compiler project/CP/src\HTMLParser.g4 by ANTLR 4.9.2
+// Generated from D:/CP/src\HTMLParser.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -28,23 +28,17 @@ public class HTMLParser extends Parser {
 		TYPE_ATTRIBUTE=46, MODEL_VALUE=47, MODEL_ATTRIBUTE=48, VAR_VARIABLE=49, 
 		VAR_EQUALS=50, VAR_VARIABLE_VALUE=51, COMMA=52, CLOSE_SQ_BRACKET=53, SQ_BRACKET_ATTRIBUTE=54, 
 		PIP=55, CLOSE_CARLE_BRAKET=56, CARLE_BRAKET_VALUE=57, MUSTACH_CLOSE=58, 
-		MUSTACH_ATTRIBUTE=59, TAG_NG_ATTRIBUTE=60, NG_VALUE=61, NGSWITCH=62, NGCASE=63, 
-		NGSHOW=64, NGHIDE=65, NGIF=66;
+		MUSTACH_ATTRIBUTE=59, TAG_NG_ATTRIBUTE=60, NG_VALUE=61;
 	public static final int
 		RULE_htmlDocument = 0, RULE_scriptletOrSeaWs = 1, RULE_htmlElements = 2, 
 		RULE_htmlElement = 3, RULE_htmlData = 4, RULE_htmlContent = 5, RULE_htmlAttribute = 6, 
-		RULE_ng_for_value = 7, RULE_ng_for = 8, RULE_ng_switch = 9, RULE_ng_case = 10, 
-		RULE_ng_show = 11, RULE_ng_hide = 12, RULE_ng_if = 13, RULE_type = 14, 
-		RULE_model = 15, RULE_ng_for_attribute = 16, RULE_mustach_open = 17, RULE_mustach_body = 18, 
-		RULE_htmlChardata = 19, RULE_htmlMisc = 20, RULE_htmlComment = 21, RULE_script = 22, 
-		RULE_style = 23;
+		RULE_ng_for_value = 7, RULE_mustach_open = 8, RULE_mustach_body = 9, RULE_htmlChardata = 10, 
+		RULE_htmlMisc = 11, RULE_htmlComment = 12, RULE_script = 13, RULE_style = 14;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"htmlDocument", "scriptletOrSeaWs", "htmlElements", "htmlElement", "htmlData", 
-			"htmlContent", "htmlAttribute", "ng_for_value", "ng_for", "ng_switch", 
-			"ng_case", "ng_show", "ng_hide", "ng_if", "type", "model", "ng_for_attribute", 
-			"mustach_open", "mustach_body", "htmlChardata", "htmlMisc", "htmlComment", 
-			"script", "style"
+			"htmlContent", "htmlAttribute", "ng_for_value", "mustach_open", "mustach_body", 
+			"htmlChardata", "htmlMisc", "htmlComment", "script", "style"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -73,7 +67,7 @@ public class HTMLParser extends Parser {
 			"MODEL_ATTRIBUTE", "VAR_VARIABLE", "VAR_EQUALS", "VAR_VARIABLE_VALUE", 
 			"COMMA", "CLOSE_SQ_BRACKET", "SQ_BRACKET_ATTRIBUTE", "PIP", "CLOSE_CARLE_BRAKET", 
 			"CARLE_BRAKET_VALUE", "MUSTACH_CLOSE", "MUSTACH_ATTRIBUTE", "TAG_NG_ATTRIBUTE", 
-			"NG_VALUE", "NGSWITCH", "NGCASE", "NGSHOW", "NGHIDE", "NGIF"
+			"NG_VALUE"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -169,9 +163,61 @@ public class HTMLParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(51);
+			setState(33);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,0,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					{
+					{
+					setState(30);
+					scriptletOrSeaWs();
+					}
+					} 
+				}
+				setState(35);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,0,_ctx);
+			}
+			setState(37);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==XML) {
+				{
+				setState(36);
+				match(XML);
+				}
+			}
+
+			setState(42);
+			_errHandler.sync(this);
+			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					{
+					{
+					setState(39);
+					scriptletOrSeaWs();
+					}
+					} 
+				}
+				setState(44);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
+			}
+			setState(46);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==DTD) {
+				{
+				setState(45);
+				match(DTD);
+				}
+			}
+
+			setState(51);
+			_errHandler.sync(this);
+			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
@@ -183,71 +229,19 @@ public class HTMLParser extends Parser {
 				}
 				setState(53);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,0,_ctx);
-			}
-			setState(55);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==XML) {
-				{
-				setState(54);
-				match(XML);
-				}
-			}
-
-			setState(60);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					{
-					setState(57);
-					scriptletOrSeaWs();
-					}
-					} 
-				}
-				setState(62);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
-			}
-			setState(64);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==DTD) {
-				{
-				setState(63);
-				match(DTD);
-				}
-			}
-
-			setState(69);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					{
-					{
-					setState(66);
-					scriptletOrSeaWs();
-					}
-					} 
-				}
-				setState(71);
-				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
 			}
-			setState(75);
+			setState(57);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << HTML_COMMENT) | (1L << HTML_CONDITIONAL_COMMENT) | (1L << SCRIPTLET) | (1L << SEA_WS) | (1L << SCRIPT_OPEN) | (1L << STYLE_OPEN) | (1L << TAG_OPEN) | (1L << TAG_OPEN_INPUT) | (1L << TAG_OPEN_MUSTACH))) != 0)) {
 				{
 				{
-				setState(72);
+				setState(54);
 				htmlElements();
 				}
 				}
-				setState(77);
+				setState(59);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -293,7 +287,7 @@ public class HTMLParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(78);
+			setState(60);
 			_la = _input.LA(1);
 			if ( !(_la==SCRIPTLET || _la==SEA_WS) ) {
 			_errHandler.recoverInline(this);
@@ -352,37 +346,37 @@ public class HTMLParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(83);
+			setState(65);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(80);
+					setState(62);
 					htmlMisc();
 					}
 					} 
 				}
-				setState(85);
+				setState(67);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			}
-			setState(86);
+			setState(68);
 			htmlElement();
-			setState(90);
+			setState(72);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(87);
+					setState(69);
 					htmlMisc();
 					}
 					} 
 				}
-				setState(92);
+				setState(74);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
 			}
@@ -475,80 +469,80 @@ public class HTMLParser extends Parser {
 		enterRule(_localctx, 6, RULE_htmlElement);
 		int _la;
 		try {
-			setState(127);
+			setState(109);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(93);
+				setState(75);
 				match(TAG_OPEN_INPUT);
-				setState(98); 
+				setState(80); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				do {
 					{
 					{
-					setState(94);
+					setState(76);
 					match(TYPE_EQUALS);
-					setState(95);
+					setState(77);
 					match(TYPE_VALUE);
-					setState(96);
+					setState(78);
 					match(NG_MODEL_EQUALS);
-					setState(97);
+					setState(79);
 					match(MODEL_VALUE);
 					}
 					}
-					setState(100); 
+					setState(82); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				} while ( _la==TYPE_EQUALS );
-				setState(102);
+				setState(84);
 				match(TAG_SLASH_CLOSE_INPUT);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(103);
+				setState(85);
 				match(TAG_OPEN);
-				setState(104);
+				setState(86);
 				match(TAG_NAME);
-				setState(108);
+				setState(90);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << TAG_NAME) | (1L << TAG_NG_FOR) | (1L << TYPE_EQUALS) | (1L << NG_MODEL_EQUALS))) != 0)) {
 					{
 					{
-					setState(105);
+					setState(87);
 					htmlAttribute();
 					}
 					}
-					setState(110);
+					setState(92);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(121);
+				setState(103);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case TAG_CLOSE:
 					{
-					setState(111);
+					setState(93);
 					match(TAG_CLOSE);
-					setState(118);
+					setState(100);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 					case 1:
 						{
-						setState(112);
+						setState(94);
 						htmlContent();
-						setState(113);
+						setState(95);
 						match(TAG_OPEN);
-						setState(114);
+						setState(96);
 						match(TAG_SLASH);
-						setState(115);
+						setState(97);
 						match(TAG_NAME);
-						setState(116);
+						setState(98);
 						match(TAG_CLOSE);
 						}
 						break;
@@ -557,7 +551,7 @@ public class HTMLParser extends Parser {
 					break;
 				case TAG_SLASH_CLOSE:
 					{
-					setState(120);
+					setState(102);
 					match(TAG_SLASH_CLOSE);
 					}
 					break;
@@ -569,28 +563,28 @@ public class HTMLParser extends Parser {
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(123);
+				setState(105);
 				match(SCRIPTLET);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(124);
+				setState(106);
 				mustach_open();
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(125);
+				setState(107);
 				script();
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(126);
+				setState(108);
 				style();
 				}
 				break;
@@ -647,7 +641,7 @@ public class HTMLParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(133);
+			setState(115);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case SCRIPTLET:
@@ -658,20 +652,20 @@ public class HTMLParser extends Parser {
 			case TAG_OPEN_INPUT:
 			case TAG_OPEN_MUSTACH:
 				{
-				setState(129);
+				setState(111);
 				htmlElement();
 				}
 				break;
 			case CDATA:
 				{
-				setState(130);
+				setState(112);
 				match(CDATA);
 				}
 				break;
 			case HTML_COMMENT:
 			case HTML_CONDITIONAL_COMMENT:
 				{
-				setState(131);
+				setState(113);
 				htmlComment();
 				}
 				break;
@@ -680,19 +674,19 @@ public class HTMLParser extends Parser {
 			case TYPE_EQUALS:
 			case NG_MODEL_EQUALS:
 				{
-				setState(132);
+				setState(114);
 				htmlAttribute();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(136);
+			setState(118);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
 			case 1:
 				{
-				setState(135);
+				setState(117);
 				htmlChardata();
 				}
 				break;
@@ -747,29 +741,29 @@ public class HTMLParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(139);
+			setState(121);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 			case 1:
 				{
-				setState(138);
+				setState(120);
 				htmlChardata();
 				}
 				break;
 			}
-			setState(144);
+			setState(126);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,16,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(141);
+					setState(123);
 					htmlData();
 					}
 					} 
 				}
-				setState(146);
+				setState(128);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,16,_ctx);
 			}
@@ -824,31 +818,31 @@ public class HTMLParser extends Parser {
 		enterRule(_localctx, 12, RULE_htmlAttribute);
 		int _la;
 		try {
-			setState(168);
+			setState(150);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,20,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(147);
+				setState(129);
 				match(TAG_NG_FOR);
-				setState(148);
+				setState(130);
 				ng_for_value();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(149);
+				setState(131);
 				match(TAG_NAME);
-				setState(152);
+				setState(134);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
 				case 1:
 					{
-					setState(150);
+					setState(132);
 					match(TAG_NG_FOR);
-					setState(151);
+					setState(133);
 					ng_for_value();
 					}
 					break;
@@ -858,34 +852,34 @@ public class HTMLParser extends Parser {
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(154);
+				setState(136);
 				match(TYPE_EQUALS);
-				setState(155);
+				setState(137);
 				match(TYPE_VALUE);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(156);
+				setState(138);
 				match(NG_MODEL_EQUALS);
-				setState(157);
+				setState(139);
 				match(MODEL_VALUE);
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(158);
+				setState(140);
 				match(TAG_NAME);
-				setState(161);
+				setState(143);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==TAG_NG_ATTRIBUTE) {
 					{
-					setState(159);
+					setState(141);
 					match(TAG_NG_ATTRIBUTE);
-					setState(160);
+					setState(142);
 					match(NG_VALUE);
 					}
 				}
@@ -895,16 +889,16 @@ public class HTMLParser extends Parser {
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(163);
+				setState(145);
 				match(TAG_NAME);
-				setState(166);
+				setState(148);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==TAG_EQUALS) {
 					{
-					setState(164);
+					setState(146);
 					match(TAG_EQUALS);
-					setState(165);
+					setState(147);
 					match(ATTVALUE_VALUE);
 					}
 				}
@@ -951,386 +945,8 @@ public class HTMLParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(170);
+			setState(152);
 			match(NG_FOR_VALUE);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class Ng_forContext extends ParserRuleContext {
-		public TerminalNode NGFOR() { return getToken(HTMLParser.NGFOR, 0); }
-		public Ng_forContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_ng_for; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).enterNg_for(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).exitNg_for(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof HTMLParserVisitor ) return ((HTMLParserVisitor<? extends T>)visitor).visitNg_for(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final Ng_forContext ng_for() throws RecognitionException {
-		Ng_forContext _localctx = new Ng_forContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_ng_for);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(172);
-			match(NGFOR);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class Ng_switchContext extends ParserRuleContext {
-		public TerminalNode NGSWITCH() { return getToken(HTMLParser.NGSWITCH, 0); }
-		public Ng_switchContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_ng_switch; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).enterNg_switch(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).exitNg_switch(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof HTMLParserVisitor ) return ((HTMLParserVisitor<? extends T>)visitor).visitNg_switch(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final Ng_switchContext ng_switch() throws RecognitionException {
-		Ng_switchContext _localctx = new Ng_switchContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_ng_switch);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(174);
-			match(NGSWITCH);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class Ng_caseContext extends ParserRuleContext {
-		public TerminalNode NGCASE() { return getToken(HTMLParser.NGCASE, 0); }
-		public Ng_caseContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_ng_case; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).enterNg_case(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).exitNg_case(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof HTMLParserVisitor ) return ((HTMLParserVisitor<? extends T>)visitor).visitNg_case(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final Ng_caseContext ng_case() throws RecognitionException {
-		Ng_caseContext _localctx = new Ng_caseContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_ng_case);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(176);
-			match(NGCASE);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class Ng_showContext extends ParserRuleContext {
-		public TerminalNode NGSHOW() { return getToken(HTMLParser.NGSHOW, 0); }
-		public Ng_showContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_ng_show; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).enterNg_show(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).exitNg_show(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof HTMLParserVisitor ) return ((HTMLParserVisitor<? extends T>)visitor).visitNg_show(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final Ng_showContext ng_show() throws RecognitionException {
-		Ng_showContext _localctx = new Ng_showContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_ng_show);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(178);
-			match(NGSHOW);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class Ng_hideContext extends ParserRuleContext {
-		public TerminalNode NGHIDE() { return getToken(HTMLParser.NGHIDE, 0); }
-		public Ng_hideContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_ng_hide; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).enterNg_hide(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).exitNg_hide(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof HTMLParserVisitor ) return ((HTMLParserVisitor<? extends T>)visitor).visitNg_hide(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final Ng_hideContext ng_hide() throws RecognitionException {
-		Ng_hideContext _localctx = new Ng_hideContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_ng_hide);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(180);
-			match(NGHIDE);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class Ng_ifContext extends ParserRuleContext {
-		public TerminalNode NGIF() { return getToken(HTMLParser.NGIF, 0); }
-		public Ng_ifContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_ng_if; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).enterNg_if(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).exitNg_if(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof HTMLParserVisitor ) return ((HTMLParserVisitor<? extends T>)visitor).visitNg_if(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final Ng_ifContext ng_if() throws RecognitionException {
-		Ng_ifContext _localctx = new Ng_ifContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_ng_if);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(182);
-			match(NGIF);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class TypeContext extends ParserRuleContext {
-		public TerminalNode TYPE() { return getToken(HTMLParser.TYPE, 0); }
-		public TypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_type; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).enterType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).exitType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof HTMLParserVisitor ) return ((HTMLParserVisitor<? extends T>)visitor).visitType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final TypeContext type() throws RecognitionException {
-		TypeContext _localctx = new TypeContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_type);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(184);
-			match(TYPE);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ModelContext extends ParserRuleContext {
-		public TerminalNode NG_MODEL() { return getToken(HTMLParser.NG_MODEL, 0); }
-		public ModelContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_model; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).enterModel(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).exitModel(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof HTMLParserVisitor ) return ((HTMLParserVisitor<? extends T>)visitor).visitModel(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ModelContext model() throws RecognitionException {
-		ModelContext _localctx = new ModelContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_model);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(186);
-			match(NG_MODEL);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class Ng_for_attributeContext extends ParserRuleContext {
-		public TerminalNode NG_FOR_ATTRIBUTE() { return getToken(HTMLParser.NG_FOR_ATTRIBUTE, 0); }
-		public Ng_for_attributeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_ng_for_attribute; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).enterNg_for_attribute(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).exitNg_for_attribute(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof HTMLParserVisitor ) return ((HTMLParserVisitor<? extends T>)visitor).visitNg_for_attribute(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final Ng_for_attributeContext ng_for_attribute() throws RecognitionException {
-		Ng_for_attributeContext _localctx = new Ng_for_attributeContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_ng_for_attribute);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(188);
-			match(NG_FOR_ATTRIBUTE);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1375,59 +991,59 @@ public class HTMLParser extends Parser {
 
 	public final Mustach_openContext mustach_open() throws RecognitionException {
 		Mustach_openContext _localctx = new Mustach_openContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_mustach_open);
+		enterRule(_localctx, 16, RULE_mustach_open);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(193);
+			setState(157);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==SEA_WS) {
 				{
 				{
-				setState(190);
+				setState(154);
 				match(SEA_WS);
 				}
 				}
-				setState(195);
+				setState(159);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(196);
+			setState(160);
 			match(TAG_OPEN_MUSTACH);
-			setState(200);
+			setState(164);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==SEA_WS) {
 				{
 				{
-				setState(197);
+				setState(161);
 				match(SEA_WS);
 				}
 				}
-				setState(202);
+				setState(166);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(203);
+			setState(167);
 			mustach_body();
-			setState(207);
+			setState(171);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==SEA_WS) {
 				{
 				{
-				setState(204);
+				setState(168);
 				match(SEA_WS);
 				}
 				}
-				setState(209);
+				setState(173);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(210);
+			setState(174);
 			match(MUSTACH_CLOSE);
 			}
 			}
@@ -1466,11 +1082,11 @@ public class HTMLParser extends Parser {
 
 	public final Mustach_bodyContext mustach_body() throws RecognitionException {
 		Mustach_bodyContext _localctx = new Mustach_bodyContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_mustach_body);
+		enterRule(_localctx, 18, RULE_mustach_body);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(212);
+			setState(176);
 			match(MUSTACH_ATTRIBUTE);
 			}
 		}
@@ -1509,12 +1125,12 @@ public class HTMLParser extends Parser {
 
 	public final HtmlChardataContext htmlChardata() throws RecognitionException {
 		HtmlChardataContext _localctx = new HtmlChardataContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_htmlChardata);
+		enterRule(_localctx, 20, RULE_htmlChardata);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(214);
+			setState(178);
 			_la = _input.LA(1);
 			if ( !(_la==SEA_WS || _la==HTML_TEXT) ) {
 			_errHandler.recoverInline(this);
@@ -1563,23 +1179,23 @@ public class HTMLParser extends Parser {
 
 	public final HtmlMiscContext htmlMisc() throws RecognitionException {
 		HtmlMiscContext _localctx = new HtmlMiscContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_htmlMisc);
+		enterRule(_localctx, 22, RULE_htmlMisc);
 		try {
-			setState(218);
+			setState(182);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case HTML_COMMENT:
 			case HTML_CONDITIONAL_COMMENT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(216);
+				setState(180);
 				htmlComment();
 				}
 				break;
 			case SEA_WS:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(217);
+				setState(181);
 				match(SEA_WS);
 				}
 				break;
@@ -1622,12 +1238,12 @@ public class HTMLParser extends Parser {
 
 	public final HtmlCommentContext htmlComment() throws RecognitionException {
 		HtmlCommentContext _localctx = new HtmlCommentContext(_ctx, getState());
-		enterRule(_localctx, 42, RULE_htmlComment);
+		enterRule(_localctx, 24, RULE_htmlComment);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(220);
+			setState(184);
 			_la = _input.LA(1);
 			if ( !(_la==HTML_COMMENT || _la==HTML_CONDITIONAL_COMMENT) ) {
 			_errHandler.recoverInline(this);
@@ -1694,48 +1310,48 @@ public class HTMLParser extends Parser {
 
 	public final ScriptContext script() throws RecognitionException {
 		ScriptContext _localctx = new ScriptContext(_ctx, getState());
-		enterRule(_localctx, 44, RULE_script);
+		enterRule(_localctx, 26, RULE_script);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(225);
+			setState(189);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==SEA_WS) {
 				{
 				{
-				setState(222);
+				setState(186);
 				match(SEA_WS);
 				}
 				}
-				setState(227);
+				setState(191);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(228);
+			setState(192);
 			match(SCRIPT_OPEN);
-			setState(235);
+			setState(199);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==VAR) {
 				{
 				{
-				setState(229);
+				setState(193);
 				match(VAR);
-				setState(230);
+				setState(194);
 				match(VAR_VARIABLE);
-				setState(231);
+				setState(195);
 				match(VAR_EQUALS);
-				setState(232);
+				setState(196);
 				match(VAR_VARIABLE_VALUE);
 				}
 				}
-				setState(237);
+				setState(201);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(238);
+			setState(202);
 			match(SCRIPT_CLOSE);
 			}
 		}
@@ -1775,14 +1391,14 @@ public class HTMLParser extends Parser {
 
 	public final StyleContext style() throws RecognitionException {
 		StyleContext _localctx = new StyleContext(_ctx, getState());
-		enterRule(_localctx, 46, RULE_style);
+		enterRule(_localctx, 28, RULE_style);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(240);
+			setState(204);
 			match(STYLE_OPEN);
-			setState(241);
+			setState(205);
 			_la = _input.LA(1);
 			if ( !(_la==STYLE_BODY || _la==STYLE_SHORT_BODY) ) {
 			_errHandler.recoverInline(this);
@@ -1806,86 +1422,73 @@ public class HTMLParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3D\u00f6\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3?\u00d2\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
-		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
-		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
-		"\3\2\7\2\64\n\2\f\2\16\2\67\13\2\3\2\5\2:\n\2\3\2\7\2=\n\2\f\2\16\2@\13"+
-		"\2\3\2\5\2C\n\2\3\2\7\2F\n\2\f\2\16\2I\13\2\3\2\7\2L\n\2\f\2\16\2O\13"+
-		"\2\3\3\3\3\3\4\7\4T\n\4\f\4\16\4W\13\4\3\4\3\4\7\4[\n\4\f\4\16\4^\13\4"+
-		"\3\5\3\5\3\5\3\5\3\5\6\5e\n\5\r\5\16\5f\3\5\3\5\3\5\3\5\7\5m\n\5\f\5\16"+
-		"\5p\13\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5y\n\5\3\5\5\5|\n\5\3\5\3\5\3\5"+
-		"\3\5\5\5\u0082\n\5\3\6\3\6\3\6\3\6\5\6\u0088\n\6\3\6\5\6\u008b\n\6\3\7"+
-		"\5\7\u008e\n\7\3\7\7\7\u0091\n\7\f\7\16\7\u0094\13\7\3\b\3\b\3\b\3\b\3"+
-		"\b\5\b\u009b\n\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\5\b\u00a4\n\b\3\b\3\b\3\b"+
-		"\5\b\u00a9\n\b\5\b\u00ab\n\b\3\t\3\t\3\n\3\n\3\13\3\13\3\f\3\f\3\r\3\r"+
-		"\3\16\3\16\3\17\3\17\3\20\3\20\3\21\3\21\3\22\3\22\3\23\7\23\u00c2\n\23"+
-		"\f\23\16\23\u00c5\13\23\3\23\3\23\7\23\u00c9\n\23\f\23\16\23\u00cc\13"+
-		"\23\3\23\3\23\7\23\u00d0\n\23\f\23\16\23\u00d3\13\23\3\23\3\23\3\24\3"+
-		"\24\3\25\3\25\3\26\3\26\5\26\u00dd\n\26\3\27\3\27\3\30\7\30\u00e2\n\30"+
-		"\f\30\16\30\u00e5\13\30\3\30\3\30\3\30\3\30\3\30\7\30\u00ec\n\30\f\30"+
-		"\16\30\u00ef\13\30\3\30\3\30\3\31\3\31\3\31\3\31\2\2\32\2\4\6\b\n\f\16"+
-		"\20\22\24\26\30\32\34\36 \"$&(*,.\60\2\6\3\2\b\t\4\2\t\t\16\16\3\2\3\4"+
-		"\3\2\37 \2\u0102\2\65\3\2\2\2\4P\3\2\2\2\6U\3\2\2\2\b\u0081\3\2\2\2\n"+
-		"\u0087\3\2\2\2\f\u008d\3\2\2\2\16\u00aa\3\2\2\2\20\u00ac\3\2\2\2\22\u00ae"+
-		"\3\2\2\2\24\u00b0\3\2\2\2\26\u00b2\3\2\2\2\30\u00b4\3\2\2\2\32\u00b6\3"+
-		"\2\2\2\34\u00b8\3\2\2\2\36\u00ba\3\2\2\2 \u00bc\3\2\2\2\"\u00be\3\2\2"+
-		"\2$\u00c3\3\2\2\2&\u00d6\3\2\2\2(\u00d8\3\2\2\2*\u00dc\3\2\2\2,\u00de"+
-		"\3\2\2\2.\u00e3\3\2\2\2\60\u00f2\3\2\2\2\62\64\5\4\3\2\63\62\3\2\2\2\64"+
-		"\67\3\2\2\2\65\63\3\2\2\2\65\66\3\2\2\2\669\3\2\2\2\67\65\3\2\2\28:\7"+
-		"\5\2\298\3\2\2\29:\3\2\2\2:>\3\2\2\2;=\5\4\3\2<;\3\2\2\2=@\3\2\2\2><\3"+
-		"\2\2\2>?\3\2\2\2?B\3\2\2\2@>\3\2\2\2AC\7\7\2\2BA\3\2\2\2BC\3\2\2\2CG\3"+
-		"\2\2\2DF\5\4\3\2ED\3\2\2\2FI\3\2\2\2GE\3\2\2\2GH\3\2\2\2HM\3\2\2\2IG\3"+
-		"\2\2\2JL\5\6\4\2KJ\3\2\2\2LO\3\2\2\2MK\3\2\2\2MN\3\2\2\2N\3\3\2\2\2OM"+
-		"\3\2\2\2PQ\t\2\2\2Q\5\3\2\2\2RT\5*\26\2SR\3\2\2\2TW\3\2\2\2US\3\2\2\2"+
-		"UV\3\2\2\2VX\3\2\2\2WU\3\2\2\2X\\\5\b\5\2Y[\5*\26\2ZY\3\2\2\2[^\3\2\2"+
-		"\2\\Z\3\2\2\2\\]\3\2\2\2]\7\3\2\2\2^\\\3\2\2\2_d\7\r\2\2`a\7-\2\2ab\7"+
-		"/\2\2bc\7.\2\2ce\7\61\2\2d`\3\2\2\2ef\3\2\2\2fd\3\2\2\2fg\3\2\2\2gh\3"+
-		"\2\2\2h\u0082\7,\2\2ij\7\f\2\2jn\7\30\2\2km\5\16\b\2lk\3\2\2\2mp\3\2\2"+
-		"\2nl\3\2\2\2no\3\2\2\2o{\3\2\2\2pn\3\2\2\2qx\7\23\2\2rs\5\f\7\2st\7\f"+
-		"\2\2tu\7\25\2\2uv\7\30\2\2vw\7\23\2\2wy\3\2\2\2xr\3\2\2\2xy\3\2\2\2y|"+
-		"\3\2\2\2z|\7\24\2\2{q\3\2\2\2{z\3\2\2\2|\u0082\3\2\2\2}\u0082\7\b\2\2"+
-		"~\u0082\5$\23\2\177\u0082\5.\30\2\u0080\u0082\5\60\31\2\u0081_\3\2\2\2"+
-		"\u0081i\3\2\2\2\u0081}\3\2\2\2\u0081~\3\2\2\2\u0081\177\3\2\2\2\u0081"+
-		"\u0080\3\2\2\2\u0082\t\3\2\2\2\u0083\u0088\5\b\5\2\u0084\u0088\7\6\2\2"+
-		"\u0085\u0088\5,\27\2\u0086\u0088\5\16\b\2\u0087\u0083\3\2\2\2\u0087\u0084"+
-		"\3\2\2\2\u0087\u0085\3\2\2\2\u0087\u0086\3\2\2\2\u0088\u008a\3\2\2\2\u0089"+
-		"\u008b\5(\25\2\u008a\u0089\3\2\2\2\u008a\u008b\3\2\2\2\u008b\13\3\2\2"+
-		"\2\u008c\u008e\5(\25\2\u008d\u008c\3\2\2\2\u008d\u008e\3\2\2\2\u008e\u0092"+
-		"\3\2\2\2\u008f\u0091\5\n\6\2\u0090\u008f\3\2\2\2\u0091\u0094\3\2\2\2\u0092"+
-		"\u0090\3\2\2\2\u0092\u0093\3\2\2\2\u0093\r\3\2\2\2\u0094\u0092\3\2\2\2"+
-		"\u0095\u0096\7\32\2\2\u0096\u00ab\5\20\t\2\u0097\u009a\7\30\2\2\u0098"+
-		"\u0099\7\32\2\2\u0099\u009b\5\20\t\2\u009a\u0098\3\2\2\2\u009a\u009b\3"+
-		"\2\2\2\u009b\u00ab\3\2\2\2\u009c\u009d\7-\2\2\u009d\u00ab\7/\2\2\u009e"+
-		"\u009f\7.\2\2\u009f\u00ab\7\61\2\2\u00a0\u00a3\7\30\2\2\u00a1\u00a2\7"+
-		">\2\2\u00a2\u00a4\7?\2\2\u00a3\u00a1\3\2\2\2\u00a3\u00a4\3\2\2\2\u00a4"+
-		"\u00ab\3\2\2\2\u00a5\u00a8\7\30\2\2\u00a6\u00a7\7\26\2\2\u00a7\u00a9\7"+
-		"!\2\2\u00a8\u00a6\3\2\2\2\u00a8\u00a9\3\2\2\2\u00a9\u00ab\3\2\2\2\u00aa"+
-		"\u0095\3\2\2\2\u00aa\u0097\3\2\2\2\u00aa\u009c\3\2\2\2\u00aa\u009e\3\2"+
-		"\2\2\u00aa\u00a0\3\2\2\2\u00aa\u00a5\3\2\2\2\u00ab\17\3\2\2\2\u00ac\u00ad"+
-		"\7(\2\2\u00ad\21\3\2\2\2\u00ae\u00af\7\20\2\2\u00af\23\3\2\2\2\u00b0\u00b1"+
-		"\7@\2\2\u00b1\25\3\2\2\2\u00b2\u00b3\7A\2\2\u00b3\27\3\2\2\2\u00b4\u00b5"+
-		"\7B\2\2\u00b5\31\3\2\2\2\u00b6\u00b7\7C\2\2\u00b7\33\3\2\2\2\u00b8\u00b9"+
-		"\7D\2\2\u00b9\35\3\2\2\2\u00ba\u00bb\7\21\2\2\u00bb\37\3\2\2\2\u00bc\u00bd"+
-		"\7\22\2\2\u00bd!\3\2\2\2\u00be\u00bf\7)\2\2\u00bf#\3\2\2\2\u00c0\u00c2"+
-		"\7\t\2\2\u00c1\u00c0\3\2\2\2\u00c2\u00c5\3\2\2\2\u00c3\u00c1\3\2\2\2\u00c3"+
-		"\u00c4\3\2\2\2\u00c4\u00c6\3\2\2\2\u00c5\u00c3\3\2\2\2\u00c6\u00ca\7\17"+
-		"\2\2\u00c7\u00c9\7\t\2\2\u00c8\u00c7\3\2\2\2\u00c9\u00cc\3\2\2\2\u00ca"+
-		"\u00c8\3\2\2\2\u00ca\u00cb\3\2\2\2\u00cb\u00cd\3\2\2\2\u00cc\u00ca\3\2"+
-		"\2\2\u00cd\u00d1\5&\24\2\u00ce\u00d0\7\t\2\2\u00cf\u00ce\3\2\2\2\u00d0"+
-		"\u00d3\3\2\2\2\u00d1\u00cf\3\2\2\2\u00d1\u00d2\3\2\2\2\u00d2\u00d4\3\2"+
-		"\2\2\u00d3\u00d1\3\2\2\2\u00d4\u00d5\7<\2\2\u00d5%\3\2\2\2\u00d6\u00d7"+
-		"\7=\2\2\u00d7\'\3\2\2\2\u00d8\u00d9\t\3\2\2\u00d9)\3\2\2\2\u00da\u00dd"+
-		"\5,\27\2\u00db\u00dd\7\t\2\2\u00dc\u00da\3\2\2\2\u00dc\u00db\3\2\2\2\u00dd"+
-		"+\3\2\2\2\u00de\u00df\t\4\2\2\u00df-\3\2\2\2\u00e0\u00e2\7\t\2\2\u00e1"+
-		"\u00e0\3\2\2\2\u00e2\u00e5\3\2\2\2\u00e3\u00e1\3\2\2\2\u00e3\u00e4\3\2"+
-		"\2\2\u00e4\u00e6\3\2\2\2\u00e5\u00e3\3\2\2\2\u00e6\u00ed\7\n\2\2\u00e7"+
-		"\u00e8\7\35\2\2\u00e8\u00e9\7\63\2\2\u00e9\u00ea\7\64\2\2\u00ea\u00ec"+
-		"\7\65\2\2\u00eb\u00e7\3\2\2\2\u00ec\u00ef\3\2\2\2\u00ed\u00eb\3\2\2\2"+
-		"\u00ed\u00ee\3\2\2\2\u00ee\u00f0\3\2\2\2\u00ef\u00ed\3\2\2\2\u00f0\u00f1"+
-		"\7\36\2\2\u00f1/\3\2\2\2\u00f2\u00f3\7\13\2\2\u00f3\u00f4\t\5\2\2\u00f4"+
-		"\61\3\2\2\2\35\659>BGMU\\fnx{\u0081\u0087\u008a\u008d\u0092\u009a\u00a3"+
-		"\u00a8\u00aa\u00c3\u00ca\u00d1\u00dc\u00e3\u00ed";
+		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\3\2\7\2\"\n\2\f\2\16"+
+		"\2%\13\2\3\2\5\2(\n\2\3\2\7\2+\n\2\f\2\16\2.\13\2\3\2\5\2\61\n\2\3\2\7"+
+		"\2\64\n\2\f\2\16\2\67\13\2\3\2\7\2:\n\2\f\2\16\2=\13\2\3\3\3\3\3\4\7\4"+
+		"B\n\4\f\4\16\4E\13\4\3\4\3\4\7\4I\n\4\f\4\16\4L\13\4\3\5\3\5\3\5\3\5\3"+
+		"\5\6\5S\n\5\r\5\16\5T\3\5\3\5\3\5\3\5\7\5[\n\5\f\5\16\5^\13\5\3\5\3\5"+
+		"\3\5\3\5\3\5\3\5\3\5\5\5g\n\5\3\5\5\5j\n\5\3\5\3\5\3\5\3\5\5\5p\n\5\3"+
+		"\6\3\6\3\6\3\6\5\6v\n\6\3\6\5\6y\n\6\3\7\5\7|\n\7\3\7\7\7\177\n\7\f\7"+
+		"\16\7\u0082\13\7\3\b\3\b\3\b\3\b\3\b\5\b\u0089\n\b\3\b\3\b\3\b\3\b\3\b"+
+		"\3\b\3\b\5\b\u0092\n\b\3\b\3\b\3\b\5\b\u0097\n\b\5\b\u0099\n\b\3\t\3\t"+
+		"\3\n\7\n\u009e\n\n\f\n\16\n\u00a1\13\n\3\n\3\n\7\n\u00a5\n\n\f\n\16\n"+
+		"\u00a8\13\n\3\n\3\n\7\n\u00ac\n\n\f\n\16\n\u00af\13\n\3\n\3\n\3\13\3\13"+
+		"\3\f\3\f\3\r\3\r\5\r\u00b9\n\r\3\16\3\16\3\17\7\17\u00be\n\17\f\17\16"+
+		"\17\u00c1\13\17\3\17\3\17\3\17\3\17\3\17\7\17\u00c8\n\17\f\17\16\17\u00cb"+
+		"\13\17\3\17\3\17\3\20\3\20\3\20\3\20\2\2\21\2\4\6\b\n\f\16\20\22\24\26"+
+		"\30\32\34\36\2\6\3\2\b\t\4\2\t\t\16\16\3\2\3\4\3\2\37 \2\u00e7\2#\3\2"+
+		"\2\2\4>\3\2\2\2\6C\3\2\2\2\bo\3\2\2\2\nu\3\2\2\2\f{\3\2\2\2\16\u0098\3"+
+		"\2\2\2\20\u009a\3\2\2\2\22\u009f\3\2\2\2\24\u00b2\3\2\2\2\26\u00b4\3\2"+
+		"\2\2\30\u00b8\3\2\2\2\32\u00ba\3\2\2\2\34\u00bf\3\2\2\2\36\u00ce\3\2\2"+
+		"\2 \"\5\4\3\2! \3\2\2\2\"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$\'\3\2\2\2%#\3"+
+		"\2\2\2&(\7\5\2\2\'&\3\2\2\2\'(\3\2\2\2(,\3\2\2\2)+\5\4\3\2*)\3\2\2\2+"+
+		".\3\2\2\2,*\3\2\2\2,-\3\2\2\2-\60\3\2\2\2.,\3\2\2\2/\61\7\7\2\2\60/\3"+
+		"\2\2\2\60\61\3\2\2\2\61\65\3\2\2\2\62\64\5\4\3\2\63\62\3\2\2\2\64\67\3"+
+		"\2\2\2\65\63\3\2\2\2\65\66\3\2\2\2\66;\3\2\2\2\67\65\3\2\2\28:\5\6\4\2"+
+		"98\3\2\2\2:=\3\2\2\2;9\3\2\2\2;<\3\2\2\2<\3\3\2\2\2=;\3\2\2\2>?\t\2\2"+
+		"\2?\5\3\2\2\2@B\5\30\r\2A@\3\2\2\2BE\3\2\2\2CA\3\2\2\2CD\3\2\2\2DF\3\2"+
+		"\2\2EC\3\2\2\2FJ\5\b\5\2GI\5\30\r\2HG\3\2\2\2IL\3\2\2\2JH\3\2\2\2JK\3"+
+		"\2\2\2K\7\3\2\2\2LJ\3\2\2\2MR\7\r\2\2NO\7-\2\2OP\7/\2\2PQ\7.\2\2QS\7\61"+
+		"\2\2RN\3\2\2\2ST\3\2\2\2TR\3\2\2\2TU\3\2\2\2UV\3\2\2\2Vp\7,\2\2WX\7\f"+
+		"\2\2X\\\7\30\2\2Y[\5\16\b\2ZY\3\2\2\2[^\3\2\2\2\\Z\3\2\2\2\\]\3\2\2\2"+
+		"]i\3\2\2\2^\\\3\2\2\2_f\7\23\2\2`a\5\f\7\2ab\7\f\2\2bc\7\25\2\2cd\7\30"+
+		"\2\2de\7\23\2\2eg\3\2\2\2f`\3\2\2\2fg\3\2\2\2gj\3\2\2\2hj\7\24\2\2i_\3"+
+		"\2\2\2ih\3\2\2\2jp\3\2\2\2kp\7\b\2\2lp\5\22\n\2mp\5\34\17\2np\5\36\20"+
+		"\2oM\3\2\2\2oW\3\2\2\2ok\3\2\2\2ol\3\2\2\2om\3\2\2\2on\3\2\2\2p\t\3\2"+
+		"\2\2qv\5\b\5\2rv\7\6\2\2sv\5\32\16\2tv\5\16\b\2uq\3\2\2\2ur\3\2\2\2us"+
+		"\3\2\2\2ut\3\2\2\2vx\3\2\2\2wy\5\26\f\2xw\3\2\2\2xy\3\2\2\2y\13\3\2\2"+
+		"\2z|\5\26\f\2{z\3\2\2\2{|\3\2\2\2|\u0080\3\2\2\2}\177\5\n\6\2~}\3\2\2"+
+		"\2\177\u0082\3\2\2\2\u0080~\3\2\2\2\u0080\u0081\3\2\2\2\u0081\r\3\2\2"+
+		"\2\u0082\u0080\3\2\2\2\u0083\u0084\7\32\2\2\u0084\u0099\5\20\t\2\u0085"+
+		"\u0088\7\30\2\2\u0086\u0087\7\32\2\2\u0087\u0089\5\20\t\2\u0088\u0086"+
+		"\3\2\2\2\u0088\u0089\3\2\2\2\u0089\u0099\3\2\2\2\u008a\u008b\7-\2\2\u008b"+
+		"\u0099\7/\2\2\u008c\u008d\7.\2\2\u008d\u0099\7\61\2\2\u008e\u0091\7\30"+
+		"\2\2\u008f\u0090\7>\2\2\u0090\u0092\7?\2\2\u0091\u008f\3\2\2\2\u0091\u0092"+
+		"\3\2\2\2\u0092\u0099\3\2\2\2\u0093\u0096\7\30\2\2\u0094\u0095\7\26\2\2"+
+		"\u0095\u0097\7!\2\2\u0096\u0094\3\2\2\2\u0096\u0097\3\2\2\2\u0097\u0099"+
+		"\3\2\2\2\u0098\u0083\3\2\2\2\u0098\u0085\3\2\2\2\u0098\u008a\3\2\2\2\u0098"+
+		"\u008c\3\2\2\2\u0098\u008e\3\2\2\2\u0098\u0093\3\2\2\2\u0099\17\3\2\2"+
+		"\2\u009a\u009b\7(\2\2\u009b\21\3\2\2\2\u009c\u009e\7\t\2\2\u009d\u009c"+
+		"\3\2\2\2\u009e\u00a1\3\2\2\2\u009f\u009d\3\2\2\2\u009f\u00a0\3\2\2\2\u00a0"+
+		"\u00a2\3\2\2\2\u00a1\u009f\3\2\2\2\u00a2\u00a6\7\17\2\2\u00a3\u00a5\7"+
+		"\t\2\2\u00a4\u00a3\3\2\2\2\u00a5\u00a8\3\2\2\2\u00a6\u00a4\3\2\2\2\u00a6"+
+		"\u00a7\3\2\2\2\u00a7\u00a9\3\2\2\2\u00a8\u00a6\3\2\2\2\u00a9\u00ad\5\24"+
+		"\13\2\u00aa\u00ac\7\t\2\2\u00ab\u00aa\3\2\2\2\u00ac\u00af\3\2\2\2\u00ad"+
+		"\u00ab\3\2\2\2\u00ad\u00ae\3\2\2\2\u00ae\u00b0\3\2\2\2\u00af\u00ad\3\2"+
+		"\2\2\u00b0\u00b1\7<\2\2\u00b1\23\3\2\2\2\u00b2\u00b3\7=\2\2\u00b3\25\3"+
+		"\2\2\2\u00b4\u00b5\t\3\2\2\u00b5\27\3\2\2\2\u00b6\u00b9\5\32\16\2\u00b7"+
+		"\u00b9\7\t\2\2\u00b8\u00b6\3\2\2\2\u00b8\u00b7\3\2\2\2\u00b9\31\3\2\2"+
+		"\2\u00ba\u00bb\t\4\2\2\u00bb\33\3\2\2\2\u00bc\u00be\7\t\2\2\u00bd\u00bc"+
+		"\3\2\2\2\u00be\u00c1\3\2\2\2\u00bf\u00bd\3\2\2\2\u00bf\u00c0\3\2\2\2\u00c0"+
+		"\u00c2\3\2\2\2\u00c1\u00bf\3\2\2\2\u00c2\u00c9\7\n\2\2\u00c3\u00c4\7\35"+
+		"\2\2\u00c4\u00c5\7\63\2\2\u00c5\u00c6\7\64\2\2\u00c6\u00c8\7\65\2\2\u00c7"+
+		"\u00c3\3\2\2\2\u00c8\u00cb\3\2\2\2\u00c9\u00c7\3\2\2\2\u00c9\u00ca\3\2"+
+		"\2\2\u00ca\u00cc\3\2\2\2\u00cb\u00c9\3\2\2\2\u00cc\u00cd\7\36\2\2\u00cd"+
+		"\35\3\2\2\2\u00ce\u00cf\7\13\2\2\u00cf\u00d0\t\5\2\2\u00d0\37\3\2\2\2"+
+		"\35#\',\60\65;CJT\\fioux{\u0080\u0088\u0091\u0096\u0098\u009f\u00a6\u00ad"+
+		"\u00b8\u00bf\u00c9";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

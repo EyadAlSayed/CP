@@ -34,22 +34,33 @@ htmlContent
 
 htmlAttribute
     :
-      TAG_NG_FOR ng_for_value // eyad
-    | TAG_NAME (TAG_NG_FOR ng_for_value)?
+      TAG_NG_FOR NG_FOR_CLOSE // eyad
+    | TAG_NG_SHOW ng_show
+    | TAG_NG_IF ng_if
+    | TAG_NG_HIDE ng_hide
+    | TAG_EVENT event
+    | TAG_NAME (TAG_NG_FOR ng_for)?
+    | TAG_NAME (TAG_NG_HIDE ng_hide)?
+    | TAG_NAME (TAG_NG_IF ng_if)?
+    | TAG_NAME (TAG_NG_IF ng_show)?
     | TYPE_EQUALS TYPE_VALUE    //type! ' '   SALEM
     | NG_MODEL_EQUALS MODEL_VALUE //ng-model! ' '   SALEM
-    | TAG_NAME (TAG_NG_ATTRIBUTE NG_VALUE)?
     | TAG_NAME (TAG_EQUALS  ATTVALUE_VALUE)?
     ;
 
 
 /*  ng for keyword  */
-ng_for_value : NG_FOR_VALUE;
+ng_for : NG_FOR_CLOSE;
+ng_hide : NG_HIDE_CLOSE;
+ng_if : NG_IF_CLOSE;
+ng_show : NG_SHOW_CLOSE;
 
+/* event */
+event: EVENT_CLOSE;
 
 /*  mustach template  */
 mustach_open : (SEA_WS* TAG_OPEN_MUSTACH SEA_WS* mustach_body SEA_WS*MUSTACH_CLOSE) ;
-mustach_body : MUSTACH_ATTRIBUTE;
+mustach_body : MUSTACH_VALUE;
 
 htmlChardata
     :
