@@ -66,7 +66,7 @@ B_CLOSE: ' '* '}}' ' '* -> popMode;
 
 B_ATTRIBUTE
     :
-    [a-zA-Z]+
+    ~('}'|'{')+
     ;
 
 // tag declarations
@@ -75,8 +75,7 @@ mode TAG;
 
 NGFOR: ' '* 'ng-for';
 NGSWITCH: ' '* 'ng-switch';
-NGSHOW: ' '* 'ng-show';
-NGIF: ' '* 'ng-if';
+NGSHOW: ' '* 'ng-show' ;
 NGHIDE: ' '* 'ng-hide';
 NGCASE: ' '* 'ng-switch-case';
 
@@ -235,6 +234,9 @@ fragment SINGLE_QUOTE_STRING
     : '\'' ~[<']* '\''
     ;
 
+
+
+
 //   SALEM
 mode INPUT_MODE;
 
@@ -309,7 +311,7 @@ MY_FORMATER
     :  MY_FORMATER_NAME FUNCTION_SPLITER  FORMATER_TYPE ;
 
 FORMATER_TYPE
-    : DATE_FORMAT SEA_WS*
+    : DATE_FORMAT
     ;
 
 DATE_FORMAT
