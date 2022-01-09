@@ -42,6 +42,9 @@ TAG_OPEN
     : '<' -> pushMode(TAG)
     ;
 
+MODEL_VARIABLE
+        : [a-zA-Z]+ -> pushMode(MODEL_VARIABLE_MODE);
+
 //Begining of 'input tag' syntax   SALEM
 
 TAG_OPEN_INPUT
@@ -379,6 +382,8 @@ fragment CONDITION_RGX :
          | (ARR_FUN | FUN) SPACE* LOG_OP SPACE* (IDWORD|IDCHAR)
          | (ARR_FUN | FUN) SPACE* LOG_OP SPACE* (ITEMNUMBER|ITEMNUM)
          | (ITEMNUMBER|ITEMNUM) SPACE* LOG_OP SPACE* (ARR_FUN | FUN);
+
+
 mode INPUT_MODE;
 
 TAG_NAME_INPUT_BEGIN
@@ -425,11 +430,43 @@ mode VAR_MODE;
 
 VAR_VARIABLE
     : (' ' | '\n')* [a-zA-Z]+;
+
 VAR_EQUALS
     : ' '* '=' ;
+
+VAR_OBJ : VAR_VARIABLE VAR_EQUALS TAG_CARLE_BRACKET CLOSE_CARLE_BRAKET -> popMode; // eyad
+
 VAR_VARIABLE_VALUE
     : ' '* '\'' ~[<']* '\'' ->popMode ;
-     
+
+
+
+
+
+mode MODEL_VARIABLE_MODE;
+
+MY_FORMATER_NAME : 'myFormater';
+FUNCTION_SPLITER : ':' ;
+
+FUNCTION_INDICATOR
+    : ' '* '|' ' '*
+    ;
+FUNCTION_NAME
+    : MY_FORMATER -> popMode
+    ;
+
+MY_FORMATER
+    :  MY_FORMATER_NAME FUNCTION_SPLITER  FORMATER_TYPE ;
+
+FORMATER_TYPE
+    : DATE_FORMAT
+    ;
+
+DATE_FORMAT
+    : '\'yyyyMMdd\''
+    | 'MMyyyydd'
+    | 'ddMMyyyy'
+    ;
 
 mode SQ_BRACKET_MODE;
 
@@ -476,6 +513,7 @@ MUSTACH_CLOSE: SPACE* '}}' SPACE* -> popMode;
 MUSTACH_VALUE
     :
     [a-zA-Z]+
+    | ~('}'|'{')+
     ;
 
 mode EVENT_MODE;

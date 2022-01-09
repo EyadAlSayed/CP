@@ -30,6 +30,8 @@ htmlData: ((htmlElement| CDATA | htmlComment|htmlAttribute) htmlChardata?);
 
 htmlContent
     :  htmlChardata? htmlData*
+    | SEA_WS* model_variable  (FUNCTION_INDICATOR FUNCTION_NAME)?
+    | SEA_WS* open_b
     ;
 
 htmlAttribute
@@ -55,12 +57,17 @@ ng_hide : NG_HIDE_CLOSE;
 ng_if : NG_IF_CLOSE;
 ng_show : NG_SHOW_CLOSE;
 
+model_variable : MODEL_VARIABLE;
+
 /* event */
 event: EVENT_CLOSE;
 
 /*  mustach template  */
 mustach_open : (SEA_WS* TAG_OPEN_MUSTACH SEA_WS* mustach_body SEA_WS*MUSTACH_CLOSE) ;
 mustach_body : MUSTACH_VALUE;
+
+open_b : (SEA_W* TAG_OPEN_B SEA_WS* b_attribute SEA_WS* B_CLOSE);
+b_attribute : B_ATTRIBUTE;
 
 htmlChardata
     :
@@ -79,8 +86,8 @@ htmlComment
     ;
 
 script
-    :SEA_WS* SCRIPT_OPEN (VAR VAR_VARIABLE VAR_EQUALS VAR_VARIABLE_VALUE)* SCRIPT_CLOSE
-
+    :SEA_WS* SCRIPT_OPEN (VAR VAR_VARIABLE VAR_EQUALS VAR_VARIABLE_VALUE)* SCRIPT_CLOSE // salem
+    | SEA_WS* SCRIPT_OPEN (VAR VAR_OBJ)* SCRIPT_CLOSE //eyad
     ;
 
 style
