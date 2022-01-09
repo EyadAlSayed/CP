@@ -1,0 +1,13 @@
+<p ng-for!'x in t'> {{x}} </p>
+
+    <!-- index -->
+    <p ng-for!'x in t;i=index'> {{x}}, {{i}} </p>
+
+    <!-- direct array -->
+    <p ng-for!'x in ['1','2','4'];i=index'> {{x}}, {{i}} </p>
+
+    <!-- key/value of an object -->
+    <p ng-for!'k,v in obj'> {{k}}:{{v}} </p>
+
+
+    <p ng-for!'k,v in { name:'Compiler', year:2020, type:'COVID' }'> {{k}}:{{v}} </p>
